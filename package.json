@@ -1,0 +1,12 @@
+{
+    "name": "dsa",
+    "version": "1.0.0",
+    "description": "learning data structure and algorithem",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "me myself and i",
+    "license": "ISC"
+}
