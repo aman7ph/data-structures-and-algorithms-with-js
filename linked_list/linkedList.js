@@ -77,7 +77,7 @@ class LinkedList {
     }
 
     get(index) {
-        if (!this.Head || index >= this.length || index < 0) {
+        if (index >= this.length || index < 0) {
             return undefined;
         } else {
             let temp = this.Head;
