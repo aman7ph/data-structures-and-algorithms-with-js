@@ -1,5 +1,10 @@
 import Node from './node.js';
-
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
 class LinkedList {
     constructor(value) {
         const newNode = new Node(value);
@@ -8,7 +13,7 @@ class LinkedList {
         this.length = 1;
     }
 
-    Push(value) {
+    push(value) {
         const newNode = new Node(value);
         if (!this.Head) {
             this.Head = newNode;
@@ -21,7 +26,7 @@ class LinkedList {
         return this;
     }
 
-    Pop() {
+    pop() {
         if (!this.Head) {
             return undefined;
         } else {
@@ -43,7 +48,7 @@ class LinkedList {
         }
     }
 
-    Unsift(value) {
+    unsift(value) {
         const newNode = new Node(value);
         if (!this.Head) {
             this.Head = newNode;
@@ -56,17 +61,29 @@ class LinkedList {
         return this;
     }
 
-    Shift() {
+    shift() {
         if (!this.Head) {
             return undefined;
-        } else if (this.length === 1) {
-            this.Head = null;
-            this.Tail = null;
         } else {
-            let temp = this.Head.next;
-            this.Head = temp;
+            let temp = this.Head;
+            this.Head = this.Head.next;
             this.length--;
+            if (this.length === 0) {
+                this.Tail = null;
+            }
+            temp.next = null;
+            return temp;
+        }
+    }
 
+    get(index) {
+        if (!this.Head || index >= this.length || index < 0) {
+            return undefined;
+        } else {
+            let temp = this.Head;
+            for (let i = 0; i < index; i++) {
+                temp = temp.next;
+            }
             return temp;
         }
     }
