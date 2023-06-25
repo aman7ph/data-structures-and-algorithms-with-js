@@ -69,4 +69,11 @@ class DoubleLinkedList {
         }
         return temp;
     }
+
+    get(index) {
+        if (index > this.length || index < 0 || index === undefined) {
+            return undefined;
+        } else {
+        }
+    }
 }
