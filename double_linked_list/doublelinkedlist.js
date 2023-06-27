@@ -74,6 +74,42 @@ class DoubleLinkedList {
         if (index > this.length || index < 0 || index === undefined) {
             return undefined;
         } else {
+            if (index < this.length / 2) {
+                let temp = this.Head;
+                for (let i = 0; i < index; i++) {
+                    temp = temp.next;
+                }
+            } else {
+                let temp = this.Tail;
+                for (let i = this.length - 1; i > index; i--) {
+                    temp = temp.prev;
+                }
+            }
+            return temp;
         }
+    }
+    set(index, value) {
+        if (index > this.length || index < 0 || index === undefined) {
+            return undefined;
+        } else {
+            if (index < this.length / 2) {
+                let temp = this.Head;
+                for (let i = 0; i < index; i++) {
+                    temp = temp.next;
+                }
+            } else {
+                let temp = this.Tail;
+                for (let i = this.length - 1; i > index; i++) {
+                    temp = temp.prev;
+                }
+            }
+            temp.value = value;
+            return true;
+            // let temp=this.get(index)
+            // if(temp){
+            //     temp.value=value
+            //     return true
+        }
+        // return false
     }
 }
