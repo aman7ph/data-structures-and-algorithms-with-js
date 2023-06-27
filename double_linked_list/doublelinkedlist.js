@@ -90,7 +90,7 @@ class DoubleLinkedList {
     }
     set(index, value) {
         if (index > this.length || index < 0 || index === undefined) {
-            return undefined;
+            return false;
         } else {
             if (index < this.length / 2) {
                 let temp = this.Head;
@@ -105,11 +105,29 @@ class DoubleLinkedList {
             }
             temp.value = value;
             return true;
-            // let temp=this.get(index)
-            // if(temp){
-            //     temp.value=value
-            //     return true
         }
+        // let temp=this.get(index)
+        // if(temp){
+        //     temp.value=value
+        //     return true
+        //}
         // return false
+    }
+
+    insert(index, value) {
+        const newNode = new DoubleLinkedList(value);
+        if (index > this.length || index < 0 || index === undefined) {
+            return undefined;
+        } else {
+            if (index === 0) {
+                newNode.next = this.Head;
+                this.Head.prev = newNode;
+                this.Head = newNode;
+
+                this.length++;
+            } else if (index === this.length) {
+            } else {
+            }
+        }
     }
 }
