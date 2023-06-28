@@ -159,11 +159,9 @@ class DoubleLinkedList {
             } else if ((index = this.length)) {
                 this.pop();
             } else {
-                let before = this.get(index - 1);
-                let after = this.get(index + 1);
                 let temp = this.get(index);
-                before.next = after;
-                after.prev = before;
+                temp.prev.next = temp.next;
+                temp.next.prev = temp.prev;
                 temp.prev = null;
                 temp.next = null;
 
