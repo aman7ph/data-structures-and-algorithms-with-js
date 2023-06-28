@@ -1,10 +1,10 @@
 import Node from './node.js';
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
-}
+// class Node {
+//     constructor(value) {
+//         this.value = value;
+//         this.next = null;
+//     }
+// }
 class LinkedList {
     constructor(value) {
         const newNode = new Node(value);
@@ -108,24 +108,22 @@ class LinkedList {
     }
 
     insert(index, value) {
+        const newNode = new Node(value);
         if (index > this.length || index < 0 || index === undefined) {
             return false;
         } else if (index === 0) {
-            const newNode = new Node(value);
             newNode.next = this.Head;
             this.Head = newNode;
             this.length++;
             return this;
             //this.unsift(value);
         } else if (index === this.length) {
-            const newNode = new Node(value);
             this.Tail.next = newNode;
             this.Tail = newNode;
             this.length++;
             return this;
             //this.push(value);
         } else {
-            const newNode = new Node(value);
             let temp = this.Head;
             for (let i = 0; i < index - 1; i++) {
                 temp = temp.next;
@@ -193,6 +191,7 @@ class LinkedList {
             prev = temp;
             temp = next;
         }
+
         return this;
     }
 }

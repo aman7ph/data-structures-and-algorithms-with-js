@@ -117,7 +117,7 @@ class DoubleLinkedList {
     insert(index, value) {
         const newNode = new DoubleLinkedList(value);
         if (index > this.length || index < 0 || index === undefined) {
-            return undefined;
+            return false;
         } else {
             if (index === 0) {
                 newNode.next = this.Head;
@@ -125,8 +125,50 @@ class DoubleLinkedList {
                 this.Head = newNode;
 
                 this.length++;
+                //this.unshift(value)
             } else if (index === this.length) {
+                this.Tail.next = newNode;
+                newNode.prev = this.Tail;
+                this.Tail = newNode;
+
+                this.length++;
+                //this.push()
             } else {
+                let before = this.Head;
+                for (let i = 0; i < index - 1; i++) {
+                    before = before.next;
+                }
+                let after = before.next;
+                newNode.next = after;
+                after.prev = newNode;
+                newNode.prev = before;
+                before.next = newNode;
+
+                this.length++;
+                return true;
+            }
+        }
+    }
+
+    remove(index) {
+        if (index > this.length || index < 0 || index === undefined) {
+            return false;
+        } else {
+            if (index === 0) {
+                this.shift();
+            } else if ((index = this.length)) {
+                this.pop();
+            } else {
+                let before = this.get(index - 1);
+                let after = this.get(index + 1);
+                let temp = this.get(index);
+                before.next = after;
+                after.prev = before;
+                temp.prev = null;
+                temp.next = null;
+
+                this.length--;
+                return temp;
             }
         }
     }
