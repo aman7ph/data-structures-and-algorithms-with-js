@@ -27,8 +27,10 @@ class Stack {
             this.Top = temp.next;
             this.Top = this.Top.next;
             temp.next = null;
-
             this.length--;
+            if (this.length === 0) {
+                this.Top = null;
+            }
             return temp;
         }
     }
