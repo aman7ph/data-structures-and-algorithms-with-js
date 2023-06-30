@@ -10,7 +10,7 @@ class Queue {
     }
 
     enqueue(value) {
-        const newNode = new Queue(value);
+        const newNode = new Node(value);
         if (this.length === 0) {
             this.First = newNode;
             this.Last = newNode;
