@@ -8,7 +8,7 @@ class Stack {
     }
 
     push(value) {
-        const newNode = new Stack(value);
+        const newNode = new Node(value);
         if (this.length === 0) {
             this.Top = newNode;
         } else {
