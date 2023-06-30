@@ -40,7 +40,7 @@ class DoubleLinkedList {
     }
 
     unshift(value) {
-        const newNode = new DoubleLinkedList(value);
+        const newNode = new Node(value);
         if (!this.Head) {
             this.Head = newNode;
             this.Tail = newNode;
@@ -115,7 +115,7 @@ class DoubleLinkedList {
     }
 
     insert(index, value) {
-        const newNode = new DoubleLinkedList(value);
+        const newNode = new Node(value);
         if (index > this.length || index < 0 || index === undefined) {
             return false;
         } else {
