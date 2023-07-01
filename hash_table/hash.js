@@ -32,4 +32,23 @@ class HashTable {
         }
         return undefined;
     }
+
+    key() {
+        let key = [];
+        for (let i = 0; i < this.dataMap.length; i++) {
+            if (this.dataMap[i]) {
+                if (this.dataMap[i].length > 1) {
+                    let key_collector = [];
+                    for (let j = 0; j < this.dataMap[i].length; j++) {
+                        key_collector.push(this.dataMap[i][j][0]);
+                    }
+                    key.push(key_collector);
+                } else {
+                    key.push(this.dataMap[i][0]);
+                }
+            }
+        }
+
+        return key;
+    }
 }
