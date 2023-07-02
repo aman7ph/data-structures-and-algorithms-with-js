@@ -62,4 +62,5 @@ gr.addVertex('C');
 gr.addEdge('A', 'B');
 gr.addEdge('A', 'C');
 gr.addEdge('B', 'C');
+
 console.log(gr);
